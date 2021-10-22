@@ -10,37 +10,59 @@
     </head>
     
     <body>
-      <style>
-    
-        body {
-          background-image: url('../../assets/LoginBG.jpg');
-          background-attachment: fixed;
-          background-size: cover;
+
+      <script>
+        function validateForm() {
+          var a = document.forms["ngNativeValidate"]["user"].value;
+          if (a == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var b = document.forms["ngNativeValidate"]["email"].value;
+          if (b == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var c = document.forms["ngNativeValidate"]["ph"].value;
+          if (c == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var d = document.forms["ngNativeValidate"]["pwd"].value;
+          if (d == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
+          var e = document.forms["ngNativeValidate"]["pwd"].value;
+          if (e == "" || x == null) {
+            alert("Name must be filled out");
+            return false;
+          }
         }
-    .main {
-            background-color: #FFFFFF;
-            width: 400px;
-            height: 600px;
-            margin: 7em auto;
-            border-radius: 1.5em;
-            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-    }
-        </style>
+        </script>
+
+
+      <div id="container-background">
+        <div id="container">
+     
       <div class="main">
         <p class="sign" align="center">Sign Up</p>
-        <form class="form1">
-          <input class="un " type="text" align="center" placeholder="Your Name">
-          <input class="em " type="text" align="center" placeholder="Email Id">
-          <input class="ph " type="text" align="center" placeholder="Phone Number">
-          <input class="pass" type="password" align="center" placeholder="Password">
-          <input class="pass" type="password" align="center" placeholder="Enter Password Again">
+        <form class="ngNativeValidate" action="" onsubmit="return validateForm()" method="post" required>
+          <input class="un " type="text" align="center" name="user" placeholder="Your Name">
+          <input class="em " type="text" align="center" name="email" placeholder="Email Id">
+          <input class="ph " type="text" align="center" name="ph" placeholder="Phone Number">
+          <input class="pass" type="password" align="center" name="pwd" placeholder="Password">
+          <input class="pass" type="password" align="center" name="pwd" placeholder="Enter Password Again">
           <br/>
           <br/>
           <br/>
          <br/>
-        <a class="submit" align="center">Sign up</a>
+         
+        <a class="submit" align="center" onClick="validateForm()" value="Submit">Sign up</a>
       </form>
     </div>
+  </div>
+</div>
   </body>
 </html>
     
