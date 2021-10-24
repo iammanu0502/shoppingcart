@@ -22,7 +22,7 @@
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 
-"use strict";
+"use strict";carousel1
 
 var arr = [];
 

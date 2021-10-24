@@ -23,3 +23,7 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+export function xyz() {
+  throw new Error('Function not implemented.');
+}

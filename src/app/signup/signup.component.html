@@ -1,70 +1,71 @@
-
 <html>
 
-    <head>
-      <link rel="stylesheet" href="signup.component.css">
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1" >
-      
-      <title>Sign Up page</title>
-    </head>
-    
-    <body>
+<head>
+  <link rel="stylesheet" href="signup.component.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <script>
-        function validateForm() {
-          var a = document.forms["ngNativeValidate"]["user"].value;
-          if (a == "" || x == null) {
-            alert("Name must be filled out");
-            return false;
-          }
-          var b = document.forms["ngNativeValidate"]["email"].value;
-          if (b == "" || x == null) {
-            alert("Name must be filled out");
-            return false;
-          }
-          var c = document.forms["ngNativeValidate"]["ph"].value;
-          if (c == "" || x == null) {
-            alert("Name must be filled out");
-            return false;
-          }
-          var d = document.forms["ngNativeValidate"]["pwd"].value;
-          if (d == "" || x == null) {
-            alert("Name must be filled out");
-            return false;
-          }
-          var e = document.forms["ngNativeValidate"]["pwd"].value;
-          if (e == "" || x == null) {
-            alert("Name must be filled out");
-            return false;
-          }
-        }
-        </script>
+  <title>Sign Up page</title>
+</head>
+
+<body>
 
 
-      <div id="container-background">
-        <div id="container">
-     
+
+  <div id="container-background">
+    <div id="container">
+      <!--login form area-->
       <div class="main">
         <p class="sign" align="center">Sign Up</p>
-        <form class="ngNativeValidate" action="" onsubmit="return validateForm()" method="post" required>
-          <input class="un " type="text" align="center" name="user" placeholder="Your Name">
-          <input class="em " type="text" align="center" name="email" placeholder="Email Id">
-          <input class="ph " type="text" align="center" name="ph" placeholder="Phone Number">
-          <input class="pass" type="password" align="center" name="pwd" placeholder="Password">
-          <input class="pass" type="password" align="center" name="pwd" placeholder="Enter Password Again">
-          <br/>
-          <br/>
-          <br/>
-         <br/>
-         
-        <a class="submit" align="center" onClick="validateForm()" value="Submit">Sign up</a>
-      </form>
+        <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" required>
+          <input class="un " type="text" align="center" formControlName="username" placeholder="Username" required>
+          <p class="error-msg" style="font-size:13px;"
+            *ngIf="reactiveForm.get('username')?.errors?.required && reactiveForm.get('username')?.touched"
+            align="center">Username
+            is required</p>
+          <input class="em " type="text" align="center" formControlName="email" placeholder="Email" required>
+          <p class="error-msg" align="center" style="font-size:13px;"
+            *ngIf="reactiveForm.get('email')?.errors?.required && reactiveForm.get('email')?.touched">Email is required
+          </p>
+          <input class="ph " type="text" align="center" formControlName="phone" placeholder="Phone Number" required>
+          <p class="error-msg" style="font-size:13px;"
+            *ngIf="reactiveForm.get('phone')?.errors?.required && reactiveForm.get('phone')?.touched" align="center">
+            Phone
+            is required</p>
+          <input class="pass" type="password" align="center" formControlName="password" placeholder="Password" required>
+          <p class="error-msg" style="font-size:13px;"
+            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched"
+            align="center">Password
+            is required</p>
+            <p class="error-msg" style="font-size:13px;"
+            *ngIf="reactiveForm.get('password')?.errors?.minlength" align="center">at least 4 char
+            is required</p>
+
+          <input class="pass" type="password" align="center" formControlName="confirm_password" errorStateMatcher="matcher"
+            placeholder="Enter Password Again" required>
+          <p class="error-msg" style="font-size:13px;"
+
+            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('confirm_password')?.touched "
+            align="center">Confirm password
+            is required</p>
+            <p class="error-msg" style="font-size:13px;" *ngIf="reactiveForm.hasError('notSame')">
+              Passwords do not match
+            </p>
+
+
+          <div class="submit-block">
+            <a class="submit" input type="submit" href="#" value="Submit" align="center">Sign Up</a>
+             <!--login form area-->
+
+          </div>
+
+
+
+
+        </form>
+      </div>
     </div>
   </div>
-</div>
-  </body>
+</body>
+
 </html>
-    
-    
-    

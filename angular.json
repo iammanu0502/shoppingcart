@@ -96,9 +96,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["src/assets/js/bootstrap.js",
-              "src/assets/js/jquery.js",
-              "src/assets/js/popper.min.js"]
+            "scripts": []
           }
         }
       }
