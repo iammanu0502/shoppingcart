@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.model';
+import { Signup } from './Signup';
 
 const baseUrl = 'http://localhost:8080/api/users';
 
@@ -10,15 +10,18 @@ const baseUrl = 'http://localhost:8080/api/users';
 })
 export class SignupService {
 
+  //createSignup: any;
+  //private baseURL = "http://localhost:8080/api";
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<User[]> {
-    return this.http.get<User[]>(baseUrl);
+
+  getAll(): Observable<Signup[]> {
+    return this.http.get<Signup[]>(baseUrl);
   }
 
-  get(id: any): Observable<User> {
-    return this.http.get(`${baseUrl}/${id}`);
-  }
+  // get(id: any): Observable<Signup> {
+  //   return this.http.get(`${baseUrl}/${id}`);
+  // }
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
@@ -27,16 +30,51 @@ export class SignupService {
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
-
-  delete(id: any): Observable<any> {
-    return this.http.delete(`${baseUrl}/${id}`);
-  }
-
-  deleteAll(): Observable<any> {
-    return this.http.delete(baseUrl);
-  }
-
-  findByUsername(username: any): Observable<User[]> {
-    return this.http.get<User[]>(`${baseUrl}?title=${username}`);
-  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//   getUserList(): Observable<Signup[]>{
+//     return this.httpClient.get<Signup[]>(`${this.baseURL}`+'/users');
+// }
+
+// createSignup(signup: Signup): Observable<Object>{                                       ///////student.service.ts
+//   return this.httpClient.post(`${this.baseURL}`+'/users', signup);
+// }
+
+// postUserList(): Observable<Signup[]>{
+//   return this.httpClient.get<Signup[]>(`${this.baseURL}`);
+// }
+
+//   saveSignup(signup: Signup): Observable<Object>{                                       ///////student.service.ts
+//   return this.httpClient.post(`${this.baseURL}`+'/users', signup);
+// }
+
+
+// getUserById(id: number): Observable<Signup>{
+//   return this.httpClient.get<Signup>(`${this.baseURL}/${id}`);
+// }
+
+// }
