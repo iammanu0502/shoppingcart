@@ -20,7 +20,7 @@
           <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" action="submit">
             <input class="em " title="Enter your email,  ex: xyz@example.com" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email_id" placeholder="Email" required>
             <p class="error-msg" style="font-size:13px;"
-              *ngIf="reactiveForm.get('email')?.errors?.required && reactiveForm.get('email')?.touched">Email
+              *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.touched">Email
               is required</p>
 
 
@@ -31,7 +31,7 @@
 
 
             <div class="submit-block">
-              <button class="submit" title="click here Login" input type="submit" href="electronics" value="Submit" align="center">Login</button>
+              <button class="submit" title="click here Login" input type="submit"  href="electronics" value="Submit" align="center">Login</button>
 
             <p class="forgot"  title="click Here! if you forgot your password" align="center"><a href="signup">Forgot Password?</a></p>
           </div>

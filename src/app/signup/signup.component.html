@@ -25,11 +25,11 @@
             is required</p>
           <input class="em "  title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  type="text" align="center" formControlName="email_id" placeholder="Email" required>
           <p class="error-msg" align="center" style="font-size:13px;"
-            *ngIf="reactiveForm.get('email')?.errors?.required && reactiveForm.get('email')?.touched">Email is required
+            *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.touched">Email is required
           </p>
           <input class="ph " title="Enter your phone Number" type="text" align="center" formControlName="phone_no" placeholder="Phone Number" required>
           <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('phone')?.errors?.required && reactiveForm.get('phone')?.touched" align="center">
+            *ngIf="reactiveForm.get('phone_no')?.errors?.required && reactiveForm.get('phone_no')?.touched" align="center">
             Phone
             is required</p>
           <input class="pass" title="Enter your password" type="password" align="center" formControlName="password" placeholder="Password" required>
