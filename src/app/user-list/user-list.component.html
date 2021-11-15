@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Products management</title>
+</head>
+
+<body>
+
+
+  <br><h2 align="center">Registered users Info</h2><br>
+  <div  style="overflow-y:auto; height: 650px;" align="center">
+  <table class = "table table-striped">
+      <thead>
+          <tr>
+              <!-- <th class="blue"> Product Name</th> -->
+              <th class="blue"> User Name </th>
+              <th class="blue"> Email Id </th>
+              <th class="blue"> Phone Number</th>
+              <th class="blue">Password</th>
+              <th class="blue">Confirm Password</th>
+              <th class="blue">ID</th>
+
+              <th class="blue"> Actions </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let user of userlist" >
+              <!-- <td> {{ user.productName }} </td> -->
+              <td> {{ user.username }} </td>
+              <td> {{ user.email_id }} </td>
+              <td> {{ user.phone_no }} </td>
+              <td> {{ user.password}} </td>
+              <td> {{ user.confirm_password}} </td>
+              <td> {{ user.id}} </td>
+              <!-- <td> {{ order.zipCode}} </td> -->
+              <td>
+
+                  <button (click) = "updateUser(user.id)" class = "btn btn-warning" style="margin-left: 10px" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"> Status</button>
+                  <button (click) = "deleteUser(user.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                  <button (click) = "updateUser(user.id)" class = "btn btn-danger" style="margin-left: 10px"> Update</button>
+
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>

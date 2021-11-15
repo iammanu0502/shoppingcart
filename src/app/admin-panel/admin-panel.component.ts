@@ -11,7 +11,7 @@ import { Adminpanel } from '../Admin-panel';
 })
 export class AdminPanelComponent implements OnInit {
   errors={email_id:false}
-  admin: Adminpanel = {email_id:'',password:''};
+  // admin: Adminpanel = {email_id:'',password:''};
 
   constructor(private router: Router,private adminService: AdminPanelService,private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
   reactiveForm!: FormGroup;
@@ -19,7 +19,7 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit(): void {
     this.reactiveForm = new FormGroup({
       email_id: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required,Validators.minLength(4)])
+      password: new FormControl('', [Validators.required,Validators.minLength(5)])
     })
   }
 
@@ -27,8 +27,8 @@ export class AdminPanelComponent implements OnInit {
 
     const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ ;
 
-     this.errors.email_id = !pattern.test(this.admin.email_id);
-    console.log(this.errors.email_id);
+     this.reactiveForm.value.email_id = !pattern.test(this.reactiveForm.value.email_id);
+    console.log(this.reactiveForm.value.email_id);
   }
 
 

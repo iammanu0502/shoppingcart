@@ -16,8 +16,10 @@ import { ProductsComponent } from './products/products.component';
 import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
+  {path: 'user-list',component:UserListComponent},
   {path: 'product-list', component:ProductListComponent},
   {path: 'order-list',component:OrderListComponent},
   {path: 'order',component:OrderComponent},
@@ -53,5 +55,6 @@ export const myRoutings=[
   ProductsComponent,
   OrderComponent,
   OrderListComponent,
-  ProductListComponent
+  ProductListComponent,
+  UserListComponent
 ]

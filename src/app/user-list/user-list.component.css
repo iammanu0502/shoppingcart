@@ -1,9 +1,6 @@
 table[align="center"] {
   margin-left:auto;
   margin-right:auto;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
 }
 
 th{
@@ -67,7 +64,7 @@ body{
 }
 #table-scroll {
   height:150px;
- overflow: scroll;
+  overflow:auto;
   margin-top:20px;
 }
 thead{

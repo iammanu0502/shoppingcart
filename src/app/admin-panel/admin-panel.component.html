@@ -3,30 +3,7 @@
 <head>
   <title>Admin login</title>
 </head>
-<!-- <script>
-  var attempt = 3; // Variable to count number of attempts.
-// Below function Executes on click of login button.
-function validate(){
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-if ( username == "admin@shoppingcart.com" && password == "admin"){
-alert ("Login successfully");
-window.location = "products"; // Redirecting to other page.
-return false;
-}
-else{
-attempt --;// Decrementing by one.
-alert("You have left "+attempt+" attempt;");
-// Disabling fields after 3 attempts.
-if( attempt == 0){
-document.getElementById("username").disabled = true;
-document.getElementById("password").disabled = true;
-document.getElementById("submit").disabled = true;
-return false;
-}
-}
-}
-</script> -->
+
 <body>
   <div class="container" id="container">
 
@@ -34,18 +11,19 @@ return false;
       <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" required>
         <h1 class="heading1">Admin login</h1>
 
-        <input type="email" title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  type="text" align="center" formControlName="email_id" placeholder="Email" required />
+        <input type="email" title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@shoppingcart.com"  type="text" align="center" formControlName="email_id" placeholder="Email" required />
         <p class="error-msg" align="center" style="font-size:13px;"
-            *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.touched">Email is required
+            *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.untouched && reactiveForm.get('email_id')?.touched">
+            Email is required
           </p>
         <input type="password"  title="Enter your password" type="password" align="center" formControlName="password" placeholder="Password" required />
         <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched"
+            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.untouched && reactiveForm.get('password')?.touched"
             align="center">Password
             is required</p>
             <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('password')?.errors?.minlength" align="center">at least 4 char
-            is required</p>
+            *ngIf="reactiveForm.get('password')?.errors?.minlength" align="center">at least 5 characters
+            are required</p>
         <div class="label">
           <input type="checkbox" name="test" /> Keep me signed in!
         </div>
