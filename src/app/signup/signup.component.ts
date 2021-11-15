@@ -27,7 +27,7 @@ export class SignupComponent implements OnInit {
 
     this.reactiveForm = new FormGroup({
       username: new FormControl('', Validators.required),
-      email_id: new FormControl('', Validators.required),
+      email_id: new FormControl('', [Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
       phone_no: new FormControl('', Validators.required),
       password: new FormControl('', [Validators.required,Validators.minLength(4)]),
       confirm_password: new FormControl('', Validators.required)
@@ -46,6 +46,8 @@ export class SignupComponent implements OnInit {
    goToLogin(){
     this.router.navigate(['/login']);
    }
+
+
 
  onSubmit():void{
   console.log(this.reactiveForm.value);

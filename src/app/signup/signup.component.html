@@ -23,16 +23,16 @@
             *ngIf="reactiveForm.get('username')?.errors?.required && reactiveForm.get('username')?.touched"
             align="center">Username
             is required</p>
-          <input class="em "  title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  type="text" align="center" formControlName="email_id" placeholder="Email" required>
+          <input class="em "  title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$"  type="text" align="center" formControlName="email_id" placeholder="Email"   required>
           <p class="error-msg" align="center" style="font-size:13px;"
             *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.touched">Email is required
           </p>
-          <input class="ph " title="Enter your phone Number" type="text" align="center" formControlName="phone_no" placeholder="Phone Number" required>
+          <input class="ph " title="Enter your phone Number" type="text"  align="center" formControlName="phone_no" placeholder="Phone Number"   required>
           <p class="error-msg" style="font-size:13px;"
             *ngIf="reactiveForm.get('phone_no')?.errors?.required && reactiveForm.get('phone_no')?.touched" align="center">
             Phone
             is required</p>
-          <input class="pass" title="Enter your password" type="password" align="center" formControlName="password" placeholder="Password" required>
+          <input class="pass" title="Enter your password" type="password" align="center" formControlName="password" placeholder="Password"   required>
           <p class="error-msg" style="font-size:13px;"
             *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched"
             align="center">Password
@@ -41,7 +41,7 @@
             *ngIf="reactiveForm.get('password')?.errors?.minlength" align="center">at least 4 char
             is required</p>
 
-          <input class="pass" title="Enter your confirm password" type="password" align="center" formControlName="confirm_password" errorStateMatcher="matcher"
+          <input class="pass" title="Enter your confirm password" type="password" align="center" formControlName="confirm_password"   errorStateMatcher="matcher"
             placeholder="Enter Password Again" required>
           <p class="error-msg" style="font-size:13px;"
 
@@ -54,7 +54,7 @@
 
 
           <div class="submit-block">
-            <button class="submit" title="Click here to finish signup" type="submit"   align="center">Sign Up</button>
+            <button class="submit" title="Click here to finish signup" type="submit"  [disabled]="!reactiveForm.valid"  align="center">Sign Up</button>
              <!--login form area-->
 
           </div>

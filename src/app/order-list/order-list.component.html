@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Products management</title>
+</head>
+
+<body>
+
+
+  <br><h2 align="center">Orders Info</h2><br>
+  <div align="center">
+  <table class = "table table-striped">
+      <thead>
+          <tr>
+              <th class="blue"> Product Name</th>
+              <th class="blue"> User Name </th>
+              <th class="blue"> Email Id </th>
+              <th class="blue"> Phone Number</th>
+              <th class="blue">Address</th>
+              <th class="blue">State</th>
+              <th class="blue">City</th>
+              <th class="blue">Zip-Code</th>
+              <th class="blue"> Actions </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let order of orderlist" >
+              <td> {{ order.productName }} </td>
+              <td> {{ order.userName }} </td>
+              <td> {{ order.emailId }} </td>
+              <td> {{ order.phoneNumber }} </td>
+              <td> {{ order.address}} </td>
+              <td> {{ order.state}} </td>
+              <td> {{ order.city}} </td>
+              <td> {{ order.zipCode}} </td>
+              <td>
+
+                  <button (click) = "updateOrder(order.id)" class = "btn btn-warning" style="margin-left: 10px"> Status</button>
+                  <button (click) = "deleteOrder(order.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                  <!-- <button (click) = "updateStudent(student.id)" class = "btn btn-danger" style="margin-left: 10px"> Update</button> -->
+
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+</body>
+
+</html>

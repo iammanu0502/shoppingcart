@@ -11,6 +11,11 @@ import { myRoutings } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupService } from './signup.service';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { ProductsComponent } from './products/products.component';
+import { OrderComponent } from './order/order.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 
 @NgModule({
@@ -19,6 +24,11 @@ import { SignupService } from './signup.service';
    AppComponent,
    HeaderComponent,
    FooterComponent,
+   ProductsComponent,
+   OrderComponent,
+   OrderListComponent,
+   ProductListComponent,
+
 
   ],
   exports:[HomeComponent],

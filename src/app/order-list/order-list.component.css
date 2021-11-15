@@ -1,0 +1,53 @@
+table[align="center"] {
+  margin-left:auto;
+  margin-right:auto;
+}
+th, td {
+  border-radius: 5px;
+  padding: 15px;
+  text-align: left;
+}
+tr:nth-child(odd) {background-color: #f2f2f2;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: rgb(234, 246, 253);}
+
+h2{
+  background-color: rgb(0, 50, 92);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+
+
+button {
+	border-radius: 5px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 5px 10px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  margin: 5px 0 0 0;
+  cursor: pointer;
+
+
+}
+.btn-warning{
+background-color: rgb(69, 56, 252);
+border:1px rgb(69, 56, 252);
+}
+.blue{
+  background-color: rgb(127, 209, 247);
+}
+body{
+  background-image: url('../../assets/ol2.jpg');
+  height: 100%;
+  width: 100%;
+  position:fixed;
+  background-repeat: no-repeat;
+  background-size:cover;
+  margin-top: -10px;
+  margin-left: -10px;
+}
