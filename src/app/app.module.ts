@@ -17,6 +17,9 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
 
 
 @NgModule({
@@ -30,6 +33,9 @@ import { UserListComponent } from './user-list/user-list.component';
    OrderListComponent,
    ProductListComponent,
    UserListComponent,
+   AddProductComponent,
+   UpdateProductComponent,
+   UpdateOrderComponent,
 
 
   ],

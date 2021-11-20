@@ -34,11 +34,8 @@
               <td> {{ order.city}} </td>
               <td> {{ order.zipCode}} </td>
               <td>
-
-                  <!-- <button (click) = "updateOrder(order.id)" class = "btn btn-warning" style="margin-left: 10px" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?"> Status</button> -->
+                  <button (click) = "updateOrder(order.id)" class = "btn btn-update" style="margin-left: 10px"> View & Update</button>
                   <button (click) = "deleteOrder(order.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                  <!-- <button (click) = "updateStudent(student.id)" class = "btn btn-danger" style="margin-left: 10px"> Update</button> -->
-
               </td>
           </tr>
       </tbody>

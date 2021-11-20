@@ -29,7 +29,7 @@ export class OrderListComponent implements OnInit {
   }
 
   updateOrder(id: number){
-    this.router.navigate(['orders', id]);
+    this.router.navigate(['update-order', id]);
   }
 
   deleteOrder(id: number){

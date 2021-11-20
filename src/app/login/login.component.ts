@@ -3,18 +3,19 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { LoginFields } from '../login';
+import { SignupService } from '../signup.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers : [LoginService]
+  providers : [LoginService,SignupService]
 })
 export class LoginComponent implements OnInit {
   errors={email_id:false}
   loginfields: LoginFields={email_id:'',password:''};
  // regArry: any = {}
-  constructor(private login: LoginService, private router: Router,private fb: FormBuilder) { }
+  constructor(private login: LoginService, private router: Router,private fb: FormBuilder, private signupservice:SignupService) { }
   // email_id: string;
   // password: string;
   reactiveForm!: FormGroup;
@@ -28,16 +29,6 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  // logincheck(){
-  //   sessionStorage.setItem('loggedUser', this.email_id);
-  //   if
-  //     (this.email_id=='' && this.password=='')
-  //      this.router.navigateByUrl('/electronics')
-
-  //   else{
-  //     alert('invalid login')
-  //   }
-  // }
 
   goToNextPage(){
     this.router.navigate(['/electronics']);
@@ -55,10 +46,12 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.reactiveForm.value);
-    this.login.loginUser(this.reactiveForm.value).subscribe((response) => {
-    console.log(response)
-    alert('You have loggedin sucessfully! Click ok to Continue...')
+    console.log('hi this is onsubmit')
+    console.log(this.loginfields.email_id);
+    this.signupservice.getUser(this.loginfields.email_id).subscribe((response) => {
+      console.log(response)
+      alert('You have registered sucessfully! Click ok to login...')
+
     this.goToNextPage();
   });
    }

@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Product page</title>
+</head>
+
+<body>
+  <div class="center">
+    <br>
+    <h1 class="color"> Update Product</h1><br>
+
+    <form (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Product Name:</label>
+        <input type="text" placeholder="Enter Product Name" class="form-control" id="ProductName" name="productName"
+          [(ngModel)]="product.p_name">
+      </div>
+
+      <div class="form-group">
+        <label> Description:</label>
+        <input type="text" placeholder="Enter Description" class="form-control" id="Description" name="Description"
+          [(ngModel)]="product.p_description">
+      </div>
+
+      <div class="form-group">
+        <label> Price:</label>
+        <input type="text" placeholder="Enter Price" class="form-control" id="Price" name="Price"
+          [(ngModel)]="product.p_price">
+      </div>
+
+      <div class="form-group">
+        <label> Seller:</label>
+        <input type="text" placeholder="Enter Seller name" class="form-control" id="Seller" name="Seller"
+          [(ngModel)]="product.p_seller">
+      </div>
+
+      <div class="form-group">
+        <label> Category:</label>
+        <input type="text" placeholder="Enter category" class="form-control" id="category" name="category"
+          [(ngModel)]="product.p_category">
+      </div>
+
+      <button class="btn btn-success col-md-12 " type="submit">Update</button>
+
+    </form>&nbsp;
+  </div>
+</body>
+
+</html>

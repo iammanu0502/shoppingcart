@@ -18,4 +18,13 @@ export class OrderService {
   createOrder(order: Order): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`+'/orders', order);
   }
+
+  getOrderById(id: number): Observable<Order> {
+    return this.httpClient.get<Order>(`${this.baseURL}` + '/orders' + `/${id}`);
+  }
+
+
+  updateOrder(id: number, updateorder: Order): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}` + '/orders' + `/${id}`, updateorder);
+  }
 }

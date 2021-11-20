@@ -17,12 +17,18 @@ import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { UpdateOrderComponent } from './update-order/update-order.component';
 
 const routes: Routes = [
+  {path: 'update-order/:id',component:UpdateOrderComponent},
   {path: 'user-list',component:UserListComponent},
+  {path: 'add-product',component:AddProductComponent},
+  {path: 'update-product/:id',component:UpdateProductComponent},
   {path: 'product-list', component:ProductListComponent},
   {path: 'order-list',component:OrderListComponent},
-  {path: 'order',component:OrderComponent},
+  {path: 'order/:id',component:OrderComponent},
 {path: 'products',component:ProductsComponent},
 {path: 'admin-panel',component:AdminPanelComponent},
 {path: 'home',component:HomeComponent,data:{header:false}},
@@ -56,5 +62,8 @@ export const myRoutings=[
   OrderComponent,
   OrderListComponent,
   ProductListComponent,
-  UserListComponent
+  UserListComponent,
+  AddProductComponent,
+  UpdateProductComponent,
+  UpdateOrderComponent
 ]

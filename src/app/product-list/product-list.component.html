@@ -1,8 +1,47 @@
 <html>
-  <head>
-    <title>Product list</title>
-  </head>
-  <body>
 
-  </body>
+<head>
+  <title>Products list</title>
+</head>
+
+<body>
+
+
+  <br><h2 align="center">Products Info</h2><br>
+  <div  style="overflow-y:auto; height: 650px;" align="center">
+  <table class = "table table-striped">
+      <thead>
+          <tr>
+
+              <th class="blue"> Product name </th>
+              <th class="blue"> Category </th>
+              <th class="blue"> Seller name</th>
+              <th class="blue">Description</th>
+              <th class="blue">Price</th>
+              <th class="blue">Product_ID</th>
+
+              <th class="blue"> Actions </th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor = "let product of productlist" >
+
+              <td> {{ product.p_name }} </td>
+              <td> {{ product.p_category }} </td>
+              <td> {{ product.p_seller }} </td>
+              <td> {{ product.p_description}} </td>
+              <td> {{ product.p_price}} </td>
+              <td> {{ product.id}} </td>
+
+              <td>
+                  <button (click) = "updateProduct(product.id)" class = "btn btn-update" style="margin-left: 10px"> View & Update</button>
+                  <button (click) = "deleteProduct(product.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>
+
+</body>
+
 </html>

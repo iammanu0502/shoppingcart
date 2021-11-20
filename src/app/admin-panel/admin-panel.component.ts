@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { AdminPanelService } from '../admin-panel.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../service/authentication.service';
 import { Adminpanel } from '../Admin-panel';
+
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.component.html',
@@ -10,10 +12,11 @@ import { Adminpanel } from '../Admin-panel';
   providers : [AdminPanelService]
 })
 export class AdminPanelComponent implements OnInit {
-  errors={email_id:false}
-  // admin: Adminpanel = {email_id:'',password:''};
 
-  constructor(private router: Router,private adminService: AdminPanelService,private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
+  errors={email_id:false}
+  admin: Adminpanel = {email_id:'',password:''};
+
+  constructor(private loginservice:AuthenticationService, private router: Router,private adminService: AdminPanelService,private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
   reactiveForm!: FormGroup;
 
   ngOnInit(): void {
@@ -22,6 +25,7 @@ export class AdminPanelComponent implements OnInit {
       password: new FormControl('', [Validators.required,Validators.minLength(5)])
     })
   }
+
 
   validateemail_id(){
 
@@ -41,9 +45,11 @@ export class AdminPanelComponent implements OnInit {
 
   onSubmit():void{
 
-    if (this.reactiveForm.value.email_id == 'admin@shoppingcart.com' && this.reactiveForm.value.password=='admin')
-      alert('You have registered sucessfully! Click ok to login...')
+    if(this.reactiveForm.value.email_id === 'admin@shoppingcart.com' && this.reactiveForm.value.password ==='admin') {
+      alert('Welcome Admin! Click OK to open Admin Home Page...')
       this.goToProducts();
-    };
+   } else {
+    alert('You have entered incorrect details...')
+   }
 }
-
+}

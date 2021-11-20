@@ -31,6 +31,9 @@ export class LoginService {
     return this.http.post(baseUrl, data);
   }
 
+  // get(id: any): Observable<Signup> {
+  //    return this.http.get(`${baseUrl}/${id}`);
+  //  }
 }
 
 

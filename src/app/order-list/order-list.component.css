@@ -34,7 +34,7 @@ h2{
 
 button {
 	border-radius: 5px;
-	border: 1px solid #FF4B2B;
+	/* border: 1px solid #FF4B2B; */
 	background-color: #FF4B2B;
 	color: #FFFFFF;
 	font-size: 12px;
@@ -45,8 +45,9 @@ button {
 	transition: transform 80ms ease-in;
   margin: 5px 0 0 0;
   cursor: pointer;
-
-
+}
+.btn-update{
+  background-color: #06af7d;
 }
 .btn-warning{
 background-color: rgb(69, 56, 252);

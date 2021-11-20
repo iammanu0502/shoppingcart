@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Signup } from './Signup';
 
 const baseUrl = 'http://localhost:8080/api/users';
+const baseUrllogin = 'http://localhost:8080/api/login';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,16 @@ export class SignupService {
     return this.http.get<Signup[]>(baseUrl);
   }
 
-  // get(id: any): Observable<Signup> {
-  //   return this.http.get(`${baseUrl}/${id}`);
-  // }
+
+  getUser(email_id: any): Observable<Signup>{
+    return this.http.get<Signup>(`${baseUrl}`+'/email'+`/${email_id}`);
+  }
+
+
+
+  // getUser(email_id: any): Observable<Signup> {
+  //   return this.http.get<Signup>(`${baseUrl}/${email_id}`);
+  //  }
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);

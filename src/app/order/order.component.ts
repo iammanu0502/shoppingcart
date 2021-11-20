@@ -24,7 +24,7 @@ export class OrderComponent implements OnInit {
 
 
 
-  saveBuynow() {
+  saveOrder() {
     this.orderservice.createOrder(this.order).subscribe( data =>{
       console.log(data);
       this.goToElectronics();
@@ -44,17 +44,15 @@ export class OrderComponent implements OnInit {
     if(this.order.productName && this.order.userName && this.order.emailId&& this.order.phoneNumber && this.order.address && this.order.state && this.order.city && this.order.zipCode )
     {
       console.log(this.order);
-      this.saveBuynow();
+      this.saveOrder();
     }
     else{
       alert("You missed your data.....below fields are required");
     }
-      // console.log(this.Buynow);
-      // this.saveBuynow();
+
 
   }
-    // console.log(this.student);
-    // this.saveStudent();
+
     validateemailId(){
 
       const pattern = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ ;

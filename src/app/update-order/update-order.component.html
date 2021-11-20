@@ -1,0 +1,82 @@
+<html>
+
+<head>
+  <title>Update Order page</title>
+</head>
+
+<body>
+  <div class="center">
+    <br>
+    <h1 class="color">Update Order</h1><br>
+
+    <form (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Product Name:</label>
+        <input type="text" placeholder="Enter Product Name" class="form-control" id="ProductName" name="productName"
+          [(ngModel)]="order.productName">
+      </div>
+
+      <div class="form-group">
+        <label> User Name:</label>
+        <input type="text" placeholder="Enter your User Name" class="form-control" id="userName" name="userName"
+          [(ngModel)]="order.userName">
+      </div>
+
+      <div class="form-group">
+        <label for="emailId" class="control-label"> Email Id:</label>
+        <input id="emailId" name="emailId" (input)="validateemailId()" placeholder="Enter Your Email Id"
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailId="ngModel" [(ngModel)]="order.emailId" type="email"
+          class="form-control"><br />
+        <!-- <small id="emailHelp" class="form-text text-muted" >We'll never share your email with anyone else.</small> -->
+        <span class="help-block btn-danger" *ngIf=errors.emailId>
+          Please Input a Valid Email Id
+        </span>
+
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number:</label>
+        <input type="tel" placeholder="9876543210" class="form-control"  id="phoneNumber"
+          name="phoneNumber" [(ngModel)]="order.phoneNumber">
+      </div>
+
+
+
+
+      <div class="form-group-add">
+        <label>Address:</label>
+        <textarea name="address" class="form-controladd" placeholder="Enter your address" [(ngModel)]="order.address">
+             </textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label>State:</label>
+        <input type="text" placeholder="Enter your state Name" class="form-control" id="state" name="state"
+          [(ngModel)]="order.state">
+
+      </div>
+
+
+      <div class="form-group">
+        <label>City:</label>
+        <input type="text" id="city" name="city" placeholder="Enter your city" class="form-control"
+          [(ngModel)]="order.city">
+      </div>
+
+
+      <div class="form-group">
+        <label>Zip-Code:</label>
+        <input type="tel" placeholder="123456" class="form-control" id="zipCode" name="zipCode"
+          [(ngModel)]="order.zipCode">
+      </div>
+
+
+      <button class="btn btn-success col-md-12 " type="submit">Order</button>
+
+    </form>&nbsp;
+  </div>
+</body>
+
+</html>

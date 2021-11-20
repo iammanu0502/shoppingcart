@@ -33,6 +33,11 @@
 .topnav .icon {
   display: none;
 }
+
+.topnav-right {
+  float: right;
+  background-color: rgb(206, 37, 37);
+}
 .ptag{
 text-align: center;
 font-size: 100%;
