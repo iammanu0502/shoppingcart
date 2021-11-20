@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: 'update-product/:id',component:UpdateProductComponent},
   {path: 'product-list', component:ProductListComponent},
   {path: 'order-list',component:OrderListComponent},
-  {path: 'order/:id',component:OrderComponent},
+  {path: 'order',component:OrderComponent},
 {path: 'products',component:ProductsComponent},
 {path: 'admin-panel',component:AdminPanelComponent},
 {path: 'home',component:HomeComponent,data:{header:false}},

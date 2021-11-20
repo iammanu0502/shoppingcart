@@ -18,10 +18,50 @@
       <a href="admin-panel">Log Out</a>
     </div>
   </div>
+<p class="ptag">Welcome to Admin console</p><div class="container" id="main-container">
 
 
 
-  <p class="ptag">Welcome to Admin console</p>
+
+
+  <div class="row">
+    <div *ngFor="let product of products" class="col-md-6 col-xl-3">
+       <div class="card m-b-30">
+          <div class="card-body row">
+             <div class="card-img-top">
+                <a href=""><img src="{{product?.image}}" alt=""   class="img-fluid rounded-rectangle w-10"  style="margin:5px; max-height:200px; max-width:200px;"></a>
+             </div>
+
+          </div>
+          <ul class="list-group list-group-flush">
+            <h5>{{product?.p_name}}</h5>
+            <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{product?.p_description}}</li>
+             <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Category: {{product?.p_category}}</li>
+             <li class="list-group-item"><i class="fa fa-phone float-right"></i>Seller : {{product?.p_seller}}</li>
+             <li class="list-group-item"><i class="fa fa-phone float-right"></i>Price : {{product?.p_price}}</li>
+
+          </ul>
+          <!-- <div class="card-body">
+             <div class="float-right btn-group btn-group-sm">
+                <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+             </div> -->
+          </div>
+          <button type="submit" href='order'>Buy</button>
+       </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

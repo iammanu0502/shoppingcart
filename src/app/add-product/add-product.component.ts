@@ -31,7 +31,7 @@ export class AddProductComponent implements OnInit {
 
   onSubmit(){
 
-    if(this.product.p_name && this.product.p_description && this.product.p_category && this.product.p_seller && this.product.p_price)
+    if(this.product.p_name && this.product.p_description && this.product.p_category && this.product.p_seller && this.product.p_price && this.product.image)
     {
       console.log(this.product);
       this.saveProduct();
