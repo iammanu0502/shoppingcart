@@ -21,15 +21,15 @@ export class SignupService {
   }
 
 
-  getUser(email_id: any): Observable<Signup>{
-    return this.http.get<Signup>(`${baseUrl}`+'/email'+`/${email_id}`);
-  }
+  // getUser(email_id: any): Observable<Signup>{
+  //   return this.http.get<Signup>(`${baseUrl}`+'/email_id'+`/${email_id}`);
+  // }
 
 
 
-  // getUser(email_id: any): Observable<Signup> {
-  //   return this.http.get<Signup>(`${baseUrl}/${email_id}`);
-  //  }
+  getUser(email_id: any): Observable<Signup> {
+    return this.http.get<Signup>(`${baseUrl}`+'/email_id'+`/${email_id}`);         // calling all the users needs to be fixed
+   }
 
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);

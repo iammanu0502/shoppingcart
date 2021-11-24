@@ -49,67 +49,34 @@
 
 
 <!------------------------------------------------------Card2---------------------------------------------------->
-<div class="container-fluid" style="background-color:#F0F8FF; border-bottom:1px solid darkgray; overflow:hidden;">
-    <div class="row mb-3">
-      <div class="col-sm-12 ">
-        <h4 class="cd-h4 mt-3 mb-3">Electronics Collections</h4>
-        <div class="card-group">
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/boAt.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap1" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">boAt Air dopes</h4>
-              <p class="card-text txt-sz">boAt Airdopes 452 TWS Earbuds with Beast™ Mode for Low Latency, ENx Technology, Upto 20 Hours Battery</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/boatear.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap2" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">boAt Ear phones</h4>
-              <p class="card-text txt-sz">boAt Bassheads 242 in Ear Wired Earphones with Mic(Carbon Black)</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/wm.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap3" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">IFB Washing Machine</h4>
-              <p class="card-text txt-sz">IFB 8.5 kg 5 Star Fully-Automatic Front Loading Washing Machine (EXECUTIVE PLUS VX ID)</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/speaker.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap4" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">Zebronics Speaker</h4>
-              <p class="card-text txt-sz">ZEBRONICS Zeb Music Bomb X Mini - Blue with Yellow</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/securitycam.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap5" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">Mi securitycam</h4>
-              <p class="card-text txt-sz">
-                Mi 360° Home Security Camera 2K Pro with Bluetooth Gateway BLE 4.2 l 2K Super Clear Image Quality</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
-          <div class="card col-sm-4 col-lg-2 card2sty">
-            <img src="../../assets/mouse.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap2" class="image-fluid">
-            <div class="card-body cd-txt">
-              <h4 class="card-title">Desktop Mouse</h4>
-              <p class="card-text txt-sz">SteelSeries Rival 3 Gaming Mouse - 8,500 CPI TrueMove Core Optical Sensor - 6 Programmable Buttons</p>
-              <a href="order" class="btn btn-warning bb-btn">Buy</a>
-            </div>
-          </div>
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-6 col-xl-3">
+     <div class="card m-b-30">
+        <div class="card-body row">
+           <div class="card-img-top">
+              <a href=""><img src="{{product?.image}}" alt=""   class="img-fluid rounded-rectangle w-10"  style="margin:5px; max-height:200px; max-width:200px;"></a>
+           </div>
+
         </div>
-      </div>
-    </div>
+        <ul class="list-group list-group-flush">
+          <h5>{{product?.p_name}}</h5>
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{product?.p_description}}</li>
+           <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Category: {{product?.p_category}}</li>
+           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Seller : {{product?.p_seller}}</li>
+           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Price : {{product?.p_price}}</li>
+
+        </ul>
+        <!-- <div class="card-body">
+           <div class="float-right btn-group btn-group-sm">
+              <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+              <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           </div> -->
+        </div>
+        <button type="submit" href='order'>Buy</button>
+     </div>
   </div>
 
-  <!------------------------------------------------------Card2---------------------------------------------------->
-
+<!------------------------------------------------------Card2---------------------------------------------------->
 
 
    <script src="electronics.bootstrap.js"></script>
