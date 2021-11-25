@@ -6,7 +6,15 @@
   </head>
 
   <body>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Welcome...!</strong> You have sucessfully logged in.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
     <div class="container" id="container">
+
 
       <div class="form-container sign-in-container">
         <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" required>

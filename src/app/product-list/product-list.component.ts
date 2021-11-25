@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Productlist } from '../product-list';
 import { ProductListService } from '../product-list.service';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +11,10 @@ import { ProductListService } from '../product-list.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+
+  displayedColumns: string[] = ['p_name','p_description','p_seller', 'p_category','p_price','actions','action1'];
+  dataSource: MatTableDataSource<Productlist>;
+
   productlist: Productlist[];
   constructor(private router: Router, private productlistservice:ProductListService) { }
 
@@ -16,11 +22,6 @@ export class ProductListComponent implements OnInit {
     this.getproducts();
   }
 
-  private getproducts(){
-    this.productlistservice.getProductList().subscribe(data => {
-      this.productlist = data;
-    });
-  }
   productDetails(id: number){
     this.router.navigate(['update-product', id]);
   }
@@ -28,6 +29,15 @@ export class ProductListComponent implements OnInit {
   updateProduct(id: number){
     this.router.navigate(['update-product', id]);
   }
+
+  private getproducts(){
+    this.productlistservice.getProductList().subscribe(data => {
+      this.productlist = data;
+      this.dataSource = new MatTableDataSource(this.productlist);
+
+    });
+  }
+
 
   deleteProduct(id: number){
     this.productlistservice.deleteProduct(id).subscribe( data => {

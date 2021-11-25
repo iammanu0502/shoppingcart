@@ -18,6 +18,25 @@ export class HomeComponent implements OnInit {
     this.getProducts();
   }
 
+
+  public searchProducts(key: string): void {
+    console.log(key);
+    const results: Prod[] = [];
+    for (const product of this.products) {
+      if (product.p_name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_seller.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_category.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_description.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_price.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(product);
+      }
+    }
+    this.products = results;
+    if (results.length === 0 || !key) {
+      this.getProducts();
+    }
+  }
+
   public getProducts(): void {
     this.prserv.getProducts().subscribe(
       (response: Prod[]) => {

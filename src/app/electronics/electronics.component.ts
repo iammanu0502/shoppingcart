@@ -16,11 +16,31 @@ export class ElectronicsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.findByCategory();
+    this.findByElectronics();
   }
 
-  public findByCategory(): void {
-    this.prserv.findByCategory().subscribe(
+
+  public searchProducts(key: string): void {
+    console.log(key);
+    const results: Prod[] = [];
+    for (const product of this.products) {
+      if (product.p_name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_seller.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_category.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_description.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.p_price.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(product);
+      }
+    }
+    this.products = results;
+    if (results.length === 0 || !key) {
+      this.findByElectronics();
+    }
+  }
+
+
+  public findByElectronics(): void {
+    this.prserv.findByElectronics().subscribe(
       (response: Prod[]) => {
         this.products = response;
         console.log(this.products);

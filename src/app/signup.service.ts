@@ -28,7 +28,7 @@ export class SignupService {
 
 
   getUser(email_id: any): Observable<Signup> {
-    return this.http.get<Signup>(`${baseUrl}`+'/email_id'+`/${email_id}`);         // calling all the users needs to be fixed
+    return this.http.get<Signup>(`${baseUrl}/${email_id}`);         // calling all the users needs to be fixed
    }
 
   create(data: any): Observable<any> {

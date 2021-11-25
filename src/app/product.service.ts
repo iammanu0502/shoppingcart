@@ -11,22 +11,18 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
 
-  // findByCategory(id: number, electronics: Prod): Observable<Object>{
-  //   return this.http.get(`${this.baseURL}`+'/products'+`/${id}`, electronics);
-  // }
-
-
-  // findByCategory(p_category: any): Observable<Prod[]>{
-  //   return this.http.get<Prod[]>(`${this.baseURL}`+'/products'+`/${p_category}`);
-  // }
-
-
-
-  public findByCategory(): Observable<Prod[]>{
-    return this.http.get<Prod[]>(`${this.baseURL}`+'/products/p_category/{Electronics}');
+  public findByElectronics(): Observable<Prod[]>{
+    return this.http.get<Prod[]>(`${this.baseURL}`+'/products/Electronics');
   }
-
-
+  public findByFashion(): Observable<Prod[]>{
+    return this.http.get<Prod[]>(`${this.baseURL}`+'/products/Fashion');
+  }
+  public findByMobiles(): Observable<Prod[]>{
+    return this.http.get<Prod[]>(`${this.baseURL}`+'/products/Mobiles');
+  }
+  public findByComputers(): Observable<Prod[]>{
+    return this.http.get<Prod[]>(`${this.baseURL}`+'/products/Computers');
+  }
 
   public getProducts(): Observable<Prod[]> {
     return this.http.get<Prod[]>(`${this.baseURL}/products`); //this is api hit to read all the records

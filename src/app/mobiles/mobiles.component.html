@@ -20,10 +20,10 @@
         </button>
         <div class="collapse navbar-collapse bg-white" style="width:100%;" id="navdp">
           <form class="form-inline bg-white  my-2 my-lg-0 mrl">
-            <input class="form-control mr-sm-2 srh-w bg-white" style="width:350px;" type="search" placeholder="Search..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input type="search" style="width:350px;" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel aria-label="Search"
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Products here..." required>
+         </form>
 
-          </form>
 
 
 
@@ -49,65 +49,32 @@
 
 
 <!------------------------------------------------------Card2---------------------------------------------------->
-<div class="container-fluid" style="background-color:#F0F8FF; border-bottom:1px solid darkgray; overflow:hidden;">
-  <div class="row mb-3">
-    <div class="col-sm-12 ">
-      <h4 class="cd-h4 mt-3 mb-3">Latest Mobile Collections</h4>
-      <div class="card-group">
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/Oppo A31.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap1" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Oppo A31</h4>
-            <p class="card-text txt-sz">OPPO A31 (Fantasy White, 6GB RAM, 128GB Storage)
-              Colour:Fantasy White</p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
+<div class="row">
+  <div *ngFor="let product of products" class="col-md-6 col-xl-3">
+     <div class="card m-b-30">
+        <div class="card-body row">
+           <div class="card-img-top">
+              <a href=""><img src="{{product?.image}}" alt=""   class="img-fluid rounded-rectangle w-10"  style="margin:5px; max-height:200px; max-width:200px;"></a>
+           </div>
+
         </div>
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/redmi9.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap2" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Redmi 9A</h4>
-            <p class="card-text txt-sz">(Nature Green, 2GB RAM, 32GB Storage) | 2GHz Octa-core Helio G25 Processor | 5000 mAh Battery</p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
+        <ul class="list-group list-group-flush">
+          <h5>{{product?.p_name}}</h5>
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{product?.p_description}}</li>
+           <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Category: {{product?.p_category}}</li>
+           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Seller : {{product?.p_seller}}</li>
+           <li class="list-group-item"><i class="fa fa-phone float-right"></i>Price : {{product?.p_price}}</li>
+
+        </ul>
+        <!-- <div class="card-body">
+           <div class="float-right btn-group btn-group-sm">
+              <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+              <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           </div> -->
         </div>
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/redmi note 10s.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap3" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Redmi Note 10S</h4>
-            <p class="card-text txt-sz">(Frost White, 6GB RAM, 64GB Storage) - Super Amoled Display | 64 MP Quad Camera | Alexa Built in</p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
-        </div>
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/Samsung M12.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap4" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Samsung Galaxy M12</h4>
-            <p class="card-text txt-sz">(Blue,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera </p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
-        </div>
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/realmex.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap5" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Realme X</h4>
-            <p class="card-text txt-sz">realme X (Space Blue, 4GB RAM, 128GB Storage)</p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
-        </div>
-        <div class="card col-sm-4 col-lg-2 card2sty">
-          <img src="../../assets/realmext.jpg" style="margin:5px; max-height:200px; max-width:200px;" alt="lap2" class="image-fluid">
-          <div class="card-body cd-txt">
-            <h4 class="card-title">Realme XT</h4>
-            <p class="card-text txt-sz">realme XT (Pearl White, 4GB RAM, 64GB Storage)
-            </p>
-            <a href="order" class="btn btn-warning bb-btn">Buy</a>
-          </div>
-        </div>
-      </div>
-    </div>
+        <button type="submit" href='order'>Buy</button>
+     </div>
   </div>
-</div>
 
 <!------------------------------------------------------Card2---------------------------------------------------->
 

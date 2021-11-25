@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
 import { LoginFields } from '../login';
 import { SignupService } from '../signup.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ import { SignupService } from '../signup.service';
   providers : [LoginService,SignupService]
 })
 export class LoginComponent implements OnInit {
+  alert:boolean=false
   errors={email_id:false}
   loginfields: LoginFields={email_id:'',password:''};
  // regArry: any = {}
@@ -48,12 +50,17 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log('hi this is onsubmit')
     console.log(this.loginfields.email_id);
+    this.alert=true
     this.signupservice.getUser(this.loginfields.email_id).subscribe((response) => {
       console.log(response)
-      alert('You have registered sucessfully! Click ok to login...')
+      // alert('Click ok to continue...')
 
-    this.goToNextPage();
+    //  this.goToNextPage();
   });
+
    }
+   closeAlert(){
+    this.alert=false
+  }
 
 }

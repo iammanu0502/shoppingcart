@@ -16,22 +16,35 @@ import { SignupService } from '../signup.service';
 
 export class SignupComponent implements OnInit {
   errors={email_id:false}
+  err={ password:false};
   signup: Signup = {Id:'',username:'', email_id:'',phone_no:'',password:'',confirm_password:''};
-// submitted=false;
-  // signupService: any;
+
  constructor(private signupService: SignupService, private router: Router, private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
     reactiveForm!: FormGroup;
 
    ngOnInit(): void {
 
 
-    this.reactiveForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      email_id: new FormControl('', [Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
-      phone_no: new FormControl('', Validators.required),
-      password: new FormControl('', [Validators.required,Validators.minLength(4)]),
-      confirm_password: new FormControl('', Validators.required)
-    })
+    // this.reactiveForm = new FormGroup({
+    //   // username: new FormControl('', Validators.required),
+    //   // email_id: new FormControl('', [Validators.required,Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")]),
+    //   // phone_no: new FormControl('', Validators.required),
+    //   // password: new FormControl('', [Validators.required,Validators.minLength(4)]),
+    //   // confirm_password: new FormControl('', Validators.required)
+    // })
+  }
+
+  validatepassword(){
+
+    const pattern = /(?=.\d)(?=.[a-z])(?=.*[A-Z]).{4,}/ ;
+
+     this.err.password = !pattern.test(this.signup.password);
+
+    if(!this.err.password){
+    this.err.password=this.signup.password !== this.signup.confirm_password;
+    }
+     console.log(this.err.password);
+
   }
 
   validateemail_id(){
@@ -50,11 +63,13 @@ export class SignupComponent implements OnInit {
 
 
  onSubmit():void{
-  console.log(this.reactiveForm.value);
-  this.signupService.create(this.reactiveForm.value).subscribe((response) => {
-    console.log(response)
-    alert('You have registered sucessfully! Click ok to login...')
-    this.goToLogin();
-  });
+  if(this.signup.username && this.signup.password && this.signup.phone_no && !this.errors.email_id && !this.err.password )
+    {
+      console.log(this.signup);
+      this.goToLogin();
+    }
+    else{
+      alert("You missed your data.....below fields are required");
+    }
  }
 }

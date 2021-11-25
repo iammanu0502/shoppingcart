@@ -1,47 +1,75 @@
 <html>
+  <head>
+    <title>Order list</title>
+  </head>
 
-<head>
-  <title>Products management</title>
-</head>
+  <body>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+         
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef>Product Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
+      </ng-container>
 
-<body>
+         
+      <ng-container matColumnDef="userName">
+        <th mat-header-cell *matHeaderCellDef>Username</th>
+        <td mat-cell *matCellDef="let element">{{ element.userName }}</td>
+      </ng-container>
 
+         
+      <ng-container matColumnDef="emailId">
+        <th mat-header-cell *matHeaderCellDef>Email id</th>
+        <td mat-cell *matCellDef="let element">{{ element.emailId }}</td>
+      </ng-container>
 
-  <br><h2 align="center">Orders Info</h2><br>
-  <div align="center" style="overflow-y:auto; height: 650px;">
-  <table class = "table table-striped">
-      <thead>
-          <tr>
-              <th class="blue"> Product Name</th>
-              <th class="blue"> User Name </th>
-              <th class="blue"> Email Id </th>
-              <th class="blue"> Phone Number</th>
-              <th class="blue">Address</th>
-              <th class="blue">State</th>
-              <th class="blue">City</th>
-              <th class="blue">Zip-Code</th>
-              <th class="blue"> Actions </th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor = "let order of orderlist" >
-              <td> {{ order.productName }} </td>
-              <td> {{ order.userName }} </td>
-              <td> {{ order.emailId }} </td>
-              <td> {{ order.phoneNumber }} </td>
-              <td> {{ order.address}} </td>
-              <td> {{ order.state}} </td>
-              <td> {{ order.city}} </td>
-              <td> {{ order.zipCode}} </td>
-              <td>
-                  <button (click) = "updateOrder(order.id)" class = "btn btn-update" style="margin-left: 10px"> View & Update</button>
-                  <button (click) = "deleteOrder(order.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-</div>
+         
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.phoneNumber }}</td>
+      </ng-container>
 
-</body>
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">{{ element.address }}</td>
+      </ng-container>
 
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef>Order Date</th>
+        <td mat-cell *matCellDef="let element">{{ element.orderDate }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef>State</th>
+        <td mat-cell *matCellDef="let element">{{ element.state }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef>City</th>
+        <td mat-cell *matCellDef="let element">{{ element.city }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="zipCode">
+        <th mat-header-cell *matHeaderCellDef>Zip-Code</th>
+        <td mat-cell *matCellDef="let element">{{ element.zipCode }}</td>
+      </ng-container>
+
+         
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="deleteOrder(element.id)">Delete</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action1">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="updateOrder(element.id)">Update</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </body>
 </html>

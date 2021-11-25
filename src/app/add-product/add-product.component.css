@@ -9,6 +9,12 @@ body,html{
   background-size: cover;
 
 }
+
+.form-control{
+  display: table-row;
+  background: rgb(255, 255, 255);
+  width:250px;
+}
 .center {
   text-align: center;
   line-height: 40px;
@@ -19,6 +25,7 @@ body,html{
   vertical-align: middle;
   }
   div {
+
     margin-bottom: 10px;
 
   }
@@ -28,12 +35,13 @@ body,html{
     color: #000000;
   }
   input {
+
     border-radius: 4px;
     padding: 5px 10px;
   }
 
   .form-controladd{
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 4px;
 
   }
@@ -41,20 +49,19 @@ body,html{
   color: rgb(0, 0, 0);
 
 }
-button{
-  cursor: pointer;
-  border-radius: 5em;
-  color: #fff;
-  background: linear-gradient(to right, #ad2fc4, #e040fb);
-  border: 0;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  /* font-family: "Ubuntu", sans-serif; */
-  margin-left: 5%;
-  margin-top: 2%;
-  font-size: 13px;
-  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+  color: aquamarine;
 }
 
+button{
+  border-color: rgb(7, 226, 80);
+margin-right: 8px;
+background-color: rgb(7, 226, 80);
+border-radius: 5px;
+}
+
+option:first {
+  color: #999;
+}

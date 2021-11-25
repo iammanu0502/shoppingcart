@@ -20,10 +20,10 @@
         </button>
         <div class="collapse navbar-collapse bg-white" style="width:100%;" id="navdp">
           <form class="form-inline bg-white  my-2 my-lg-0 mrl">
-            <input class="form-control mr-sm-2 srh-w bg-white" style="width:350px;" type="search" placeholder="Search..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input type="search" style="width:350px;" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel aria-label="Search"
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Products here..." required>
+         </form>
 
-          </form>
 
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Orderlist } from '../Order-list';
 import { OrderListService } from '../order-list.service';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { OrderListService } from '../order-list.service';
 })
 export class OrderListComponent implements OnInit {
   orderlist: Orderlist[];
+  displayedColumns: string[] = ['productName','userName','emailId','phoneNumber','address','orderDate','state','city','zipCode','actions','action1'];
+  dataSource: MatTableDataSource<Orderlist>;
   constructor(private router: Router, private orderlistservice:OrderListService) { }
 
   ngOnInit(): void
@@ -20,6 +23,7 @@ export class OrderListComponent implements OnInit {
   private getorders(){
     this.orderlistservice.getOrderList().subscribe(data => {
       this.orderlist = data;
+      this.dataSource = new MatTableDataSource(this.orderlist);
     });
   }
 

@@ -17,44 +17,49 @@
       <!--login form area-->
       <div class="main">
         <p class="sign" align="center">Sign Up</p>
-        <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm" required>
-          <input class="un " title="Enter your username" type="text" align="center" formControlName="username" placeholder="Username" required>
-          <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('username')?.errors?.required && reactiveForm.get('username')?.touched"
-            align="center">Username
-            is required</p>
-          <input class="em "  title="Enter your email,  ex: xyz@example.com" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$"  type="text" align="center" formControlName="email_id" placeholder="Email"   required>
-          <p class="error-msg" align="center" style="font-size:13px;"
-            *ngIf="reactiveForm.get('email_id')?.errors?.required && reactiveForm.get('email_id')?.touched">Email is required
-          </p>
-          <input class="ph " title="Enter your phone Number" type="text"  align="center" formControlName="phone_no" placeholder="Phone Number"   required>
-          <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('phone_no')?.errors?.required && reactiveForm.get('phone_no')?.touched" align="center">
-            Phone
-            is required</p>
-          <input class="pass" title="Enter your password" type="password" align="center" formControlName="password" placeholder="Password"   required>
-          <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched"
-            align="center">Password
-            is required</p>
-            <p class="error-msg" style="font-size:13px;"
-            *ngIf="reactiveForm.get('password')?.errors?.minlength" align="center">at least 4 char
-            is required</p>
+        <form (ngSubmit)="onSubmit()"  required>
+          <div class="form-group">
+            <!-- <label>User Name:</label> -->
+            <input type="text" placeholder="Enter Username" class="form-control" id="ProductName" name="productName"
+              [(ngModel)]="signup.username">
+          </div>
 
-          <input class="pass" title="Enter your confirm password" type="password" align="center" formControlName="confirm_password"   errorStateMatcher="matcher"
-            placeholder="Enter Password Again" required>
-          <p class="error-msg" style="font-size:13px;"
+          <div class="form-group">
+            <!-- <label for="emailId" class="control-label"> Email Id:</label> -->
+            <input id="emailId" name="emailId" (input)="validateemail_id()" placeholder="Enter Your Email Id"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailId="ngModel" [(ngModel)]="signup.email_id" type="email"
+              class="form-control"><br />
+            <span class="help-block btn-danger" *ngIf=errors.email_id>
+              Please Input a Valid Email Id
+            </span>
 
-            *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('confirm_password')?.touched "
-            align="center">Confirm password
-            is required</p>
-            <p class="error-msg" style="font-size:13px;" *ngIf="reactiveForm.hasError('notSame')">
-              Passwords do not match
-            </p>
+          </div>
+
+          <div class="form-group">
+            <!-- <label>Phone Number:</label> -->
+            <input type="tel" placeholder="Enter Phone Number" class="form-control"  id="phoneNumber"
+              name="phoneNumber" [(ngModel)]="signup.phone_no">
+          </div>
+
+
+          <div class="form-group">
+            <!-- <label for="password" class="control-label">Password</label> -->
+            <input type="password"  placeholder="Enter Password" class ="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id = "Password" name="Password" minlength="4"
+            [(ngModel)] = "signup.password">
+        </div>
+
+            <div class="form-group">
+              <!-- <label for="password" class="control-label"> Confirm Password</label> -->
+              <input type="password"  placeholder="Enter Confirm Password" class ="form-control"  (input)="validatepassword()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" id = "confirmPassword" name="confirmPassword" minlength="4"
+              [(ngModel)] = "signup.confirm_password">
+              <span class="help-block btn-danger" *ngIf=err.password>
+              password doesn't match<br>
+            </span>
+          </div>
 
 
           <div class="submit-block">
-            <button class="submit" title="Click here to finish signup" type="submit"  [disabled]="!reactiveForm.valid"  align="center">Sign Up</button>
+            <button class="submit" title="Click here to finish signup" type="submit"   align="center">Sign Up</button>
              <!--login form area-->
 
           </div>

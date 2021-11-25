@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { myRoutings } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
@@ -20,7 +20,10 @@ import { UserListComponent } from './user-list/user-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { UpdateOrderComponent } from './update-order/update-order.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MatTableDataSource } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table'
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,11 @@ import { UpdateOrderComponent } from './update-order/update-order.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [SignupService,HttpClientModule],
   bootstrap: [AppComponent]

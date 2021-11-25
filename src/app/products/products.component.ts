@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Prod } from '../prod';
 import { ProductService } from '../product.service';
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',

@@ -20,11 +20,12 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse bg-white" style="width:100%;" id="navdp">
-          <form class="form-inline bg-white  my-2 my-lg-0 mrl">
-            <input class="form-control mr-sm-2 srh-w bg-white" style="width:350px;" type="search" title="search items here" placeholder="Search..." aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"  title="search button">Search</button>
 
-          </form>
+          <form class="form-inline bg-white  my-2 my-lg-0 mrl">
+            <input type="search" style="width:350px;" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel aria-label="Search"
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search Products here..." required>
+         </form>
+
 
           <button onclick="window.location.href='login'" type="button" title="Click here to login" class="btn btn-danger reg3">Login</button>
           <button onclick="window.location.href='signup'" type="button" title="Click here to signup" class="btn btn-danger reg1">Sign Up</button>
@@ -109,7 +110,7 @@
               <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
            </div> -->
         </div>
-        <button type="submit" href='order'>Buy</button>
+        <button onclick="window.location.href='order'" type="button" title="Click here to login" class="btn btn-primary reg3">Order</button>
      </div>
   </div>
 

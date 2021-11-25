@@ -1,46 +1,55 @@
 <html>
+  <head>
+    <title>Products list</title>
+  </head>
 
-<head>
-  <title>Products list</title>
-</head>
+  <body>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+         
+      <ng-container matColumnDef="p_name">
+        <th mat-header-cell *matHeaderCellDef>Product Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.p_name }}</td>
+      </ng-container>
 
-<body>
+         
+      <ng-container matColumnDef="p_description">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.p_description }}</td>
+      </ng-container>
 
+         
+      <ng-container matColumnDef="p_seller">
+        <th mat-header-cell *matHeaderCellDef>Seller</th>
+        <td mat-cell *matCellDef="let element">{{ element.p_seller }}</td>
+      </ng-container>
 
-  <br><h2 align="center">Products Info</h2><br>
-  <div  style="overflow-y:auto; height: 650px;" align="center">
-  <table class = "table table-striped">
-      <thead>
-          <tr>
+         
+      <ng-container matColumnDef="p_category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.p_category }}</td>
+      </ng-container>
 
-              <th class="blue"> Product name </th>
-              <th class="blue"> Category </th>
-              <th class="blue"> Seller name</th>
-              <th class="blue">Description</th>
-              <th class="blue">Price</th>
-              <th class="blue">Product_ID</th>
-              <th class="blue"> Actions </th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor = "let product of productlist" >
+      <ng-container matColumnDef="p_price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.p_price }}</td>
+      </ng-container>
 
-              <td> {{ product.p_name }} </td>
-              <td> {{ product.p_category }} </td>
-              <td> {{ product.p_seller }} </td>
-              <td> {{ product.p_description}} </td>
-              <td> {{ product.p_price}} </td>
-              <td> {{ product.id}} </td>
+         
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="deleteProduct(element.id)">Delete</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action1">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="updateProduct(element.id)">Update</button>
+        </td>
+      </ng-container>
 
-              <td>
-                  <button (click) = "updateProduct(product.id)" class = "btn btn-update" style="margin-left: 10px"> View & Update</button>
-                  <button (click) = "deleteProduct(product.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-              </td>
-          </tr>
-      </tbody>
-  </table>
-</div>
-
-</body>
-
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </body>
 </html>

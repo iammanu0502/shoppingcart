@@ -5,6 +5,6 @@ export class Signup
   username: string ;
   phone_no: string ;
   password: string ;
-  confirm_password : string;
+  confirm_password? : string;
 
 }

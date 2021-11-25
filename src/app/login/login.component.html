@@ -12,11 +12,22 @@
 
 
 <body>
+
   <section class="login-page">
+
     <div id="container-background">
+
       <div id="container">
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>Welcome...!</strong> You have sucessfully logged in.
+          <button (click)="goToNextPage()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div class="main">
-          <p class="sign" align="center">Login here!</p>
+
+          <p class="sign" >Login here!</p>
+
           <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" action="submit">
             <input class="em " title="Enter your email,  ex: xyz@example.com" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,4}$" formControlName="email_id" placeholder="Email"  required>
             <p class="error-msg" style="font-size:13px;"
@@ -26,14 +37,14 @@
 
             <input class="pass"  title="enter your password" type="text" formControlName="password" placeholder="Password"  required>
             <p class="error-msg" style="font-size:13px;"
-              *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched" align="center">Password
+              *ngIf="reactiveForm.get('password')?.errors?.required && reactiveForm.get('password')?.touched" >Password
               is required</p>
 
 
             <div class="submit-block">
               <button class="submit" title="click here Login" input type="submit" href="electronics" value="Submit"  [disabled]="!reactiveForm.valid" align="center">Login</button>
 
-            <p class="forgot"  title="click Here! if you forgot your password" align="center"><a href="signup">Forgot Password?</a></p>
+            <p class="forgot"  title="click Here! if you forgot your password" ><a href="signup">Forgot Password?</a></p>
           </div>
           </form>
         </div>
