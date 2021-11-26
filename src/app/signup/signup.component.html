@@ -1,76 +1,97 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="signup.component.css">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Sign Up page</title>
+  <title>sign up page</title>
 </head>
 
 <body>
+  <section class="login-page">
+    <div class="main">
+      <br />
+      <p class="sign">Signup here!</p>
+      <br/>
 
+      <div class="col-md-10 offset-md-1">
 
+        <form (ngSubmit)="onSubmit()">
 
-  <div id="container-background">
-    <div id="container">
-      <!--login form area-->
-      <div class="main">
-        <p class="sign" align="center">Sign Up</p>
-        <form (ngSubmit)="onSubmit()"  required>
-          <div class="form-group">
-            <!-- <label>User Name:</label> -->
-            <input type="text" placeholder="Enter Username" class="form-control" id="ProductName" name="productName"
-              [(ngModel)]="signup.username">
+          <div class="log">
+            <!-- <a><img src="../../assets/reg.jpg"></a> -->
           </div>
 
           <div class="form-group">
-            <!-- <label for="emailId" class="control-label"> Email Id:</label> -->
-            <input id="emailId" name="emailId" (input)="validateemail_id()" placeholder="Enter Your Email Id"
-              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #emailId="ngModel" [(ngModel)]="signup.email_id" type="email"
-              class="form-control"><br />
-            <span class="help-block btn-danger" *ngIf=errors.email_id>
-              Please Input a Valid Email Id
+            <!-- <label> Username</label> -->
+            <input type="text" placeholder="Enter username" class="form-control" id="username" name="username"
+              [(ngModel)]="signup.username" data-toggle="tooltip" data-placement="bottom" title="Enter Your Username">
+          </div>
+
+          <div class="form-group">
+            <!-- <label> Phone No</label> -->
+            <input type="text" placeholder="Enter Phone number" class="form-control" id="phone_no" name="phone_no"
+              [(ngModel)]="signup.phone_no" data-toggle="tooltip" data-placement="bottom" title="Enter Your Phone no">
+          </div>
+
+
+          <div class="form-group">
+            <!-- <label for="email_id" class="control-label"> Email id</label> -->
+            <input id="email_id" name="email_id" (input)="validateemailId()" placeholder="Enter Email Id"
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="signup.email_id" type="email"
+              class="form-control" data-toggle="tooltip" data-placement="bottom" title="Enter Your Email Id">
+            <small id="emailHelp" class="form-text text-muted text-center">We'll never share your email with anyone
+              else.</small>
+            <span class="help-block" *ngIf=errors.emailId>
+              Please Enter a Valid Email Id
             </span>
 
           </div>
 
-          <div class="form-group">
-            <!-- <label>Phone Number:</label> -->
-            <input type="tel" placeholder="Enter Phone Number" class="form-control"  id="phoneNumber"
-              name="phoneNumber" [(ngModel)]="signup.phone_no">
-          </div>
-
 
           <div class="form-group">
-            <!-- <label for="password" class="control-label">Password</label> -->
-            <input type="password"  placeholder="Enter Password" class ="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id = "Password" name="Password" minlength="4"
-            [(ngModel)] = "signup.password">
-        </div>
+            <!-- <label for="password" class="control-label"> Password</label> -->
+            <input type="password" placeholder="Enter Password" class="form-control" (input)="validatepassword()"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="password" name="password" minlength="6"
+              [(ngModel)]="signup.password" data-toggle="tooltip" data-placement="bottom" title="Enter Your Password">
+
+            <span class="help-block" *ngIf=err.password>
+              Please Enter a Valid format<br></span>
+            <span>
+              <br />
+              <small>
+                <div class="message" *ngIf=err.password>
+                  <p id="capital" class="invalid">at least one uppercase letter</p>
+                  <p id="letter" class="invalid">at least one lowercase letter</p>
+                  <p id="number" class="invalid">at least one number</p>
+                  <p id="length" class="invalid">Minimum 6 characters</p>
+                </div>
+              </small>
+            </span>
+
 
             <div class="form-group">
               <!-- <label for="password" class="control-label"> Confirm Password</label> -->
-              <input type="password"  placeholder="Enter Confirm Password" class ="form-control"  (input)="validatepassword()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" id = "confirmPassword" name="confirmPassword" minlength="4"
-              [(ngModel)] = "signup.confirm_password">
-              <span class="help-block btn-danger" *ngIf=err.password>
-              password doesn't match<br>
-            </span>
+              <input type="password" placeholder="Confirm Password" class="form-control" (input)="validatepassword()"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" id="confirmPassword" name="confirmPassword" minlength="6"
+                [(ngModel)]="signup.confirm_password" data-toggle="tooltip" data-placement="bottom"
+                title="Re-Enter Your Password">
+
+              <span class="help-block" *ngIf=err.password>
+                Password doesn't match<br>
+              </span>
+            </div>
           </div>
 
 
-          <div class="submit-block">
-            <button class="submit" title="Click here to finish signup" type="submit"   align="center">Sign Up</button>
-             <!--login form area-->
 
+          <div class="col-md-12 text-center">
+            <button class="btn btn-primary " type="submit" data-toggle="tooltip" data-placement="bottom"
+              title="Click here to Register">Register</button>&nbsp;
+            <button (click)="back()" class="btn btn-dark" data-toggle="tooltip" data-placement="bottom"
+              title="Click here to go back"> Back</button>&nbsp;
           </div>
-
-
-
-
         </form>&nbsp;
       </div>
     </div>
-  </div>
+  </section>
 </body>
 
 </html>

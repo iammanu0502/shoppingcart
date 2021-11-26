@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
-    console.log('hi this is onsubmit')
+    // console.log('hi this is onsubmit')
     console.log(this.loginfields.email_id);
     this.alert=true
-    this.signupservice.getUser(this.loginfields.email_id).subscribe((response) => {
+    this.signupservice.findByEmail_id(this.loginfields.email_id).subscribe((response) => {
       console.log(response)
       // alert('Click ok to continue...')
 

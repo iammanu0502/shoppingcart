@@ -6,6 +6,7 @@ import { Updateproduct } from './update-product';
 let header = new HttpHeaders();
 header.set('Access-Control-Allow-Origin', '*');
 
+
 @Injectable({
   providedIn: 'root'
 })
