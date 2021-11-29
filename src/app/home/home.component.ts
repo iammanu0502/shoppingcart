@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prod } from '../prod';
 import { ProductService } from '../product.service';
 @Component({
@@ -10,12 +11,18 @@ import { ProductService } from '../product.service';
 export class HomeComponent implements OnInit {
 
   public products: Prod[];
-  constructor(private prserv:ProductService){}
+  constructor(private prserv:ProductService, private router:Router){}
 
 
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+
+  public register(){
+    alert('please register')
+    this.router.navigate(['/signup']);
   }
 
 
@@ -36,6 +43,9 @@ export class HomeComponent implements OnInit {
       this.getProducts();
     }
   }
+
+
+
 
   public getProducts(): void {
     this.prserv.getProducts().subscribe(

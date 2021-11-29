@@ -9,7 +9,6 @@ body,html{
   background-size: cover;
 
 }
-
 .form-control{
   display: table-row;
   background: rgb(255, 255, 255);
@@ -50,7 +49,7 @@ body,html{
   color: aquamarine;
 }
 
-button{
+.submit{
   border-color: rgb(7, 226, 80);
 margin-right: 8px;
 background-color: rgb(7, 226, 80);

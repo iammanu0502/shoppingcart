@@ -5,5 +5,6 @@ export class Updateproduct{
   p_seller:string;
   p_description:string;
   p_price:string;
+  image:string;
   }
 

@@ -4,6 +4,12 @@
   </head>
 
   <body>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button (click)="orderlist()" type="button" class="btn btn-primary">Order List</button>
+      <button (click)="productlist()" type="button" class="btn btn-primary">Product List</button>
+      <button (click)="back()" type="button" class="btn btn-secondary">Back</button>
+
+    </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
          
       <ng-container matColumnDef="username">

@@ -37,6 +37,14 @@ export class OrderComponent implements OnInit {
     this.router.navigate(['/electronics']);
   }
 
+  back(){
+    this.router.navigate(['/electronics']);
+  }
+
+  home(){
+    this.router.navigate(['/home']);
+  }
+
 
 
   onSubmit(){

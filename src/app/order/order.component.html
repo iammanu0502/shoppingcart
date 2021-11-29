@@ -5,6 +5,13 @@
 </head>
 
 <body>
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button (click)="home()" type="button" class="btn btn-primary">Home</button>
+    <button (click)="back()" type="button" class="btn btn-secondary">Back</button>
+
+  </div>
+
   <div class="center">
     <br>
     <h1 class="color"> Order Now</h1><br>
@@ -111,7 +118,7 @@
       </div>
 
 
-      <button mat-button color="basic" type="submit">Place Order</button>
+      <button class="submit" mat-button color="basic" type="submit">Place Order</button>
 
     </form>&nbsp;
   </div>

@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './cart/cart.component';
+// import { CartComponent } from './cart/cart.component';
 import { ComputersLaptopsComponent } from './computers-laptops/computers-laptops.component';
 import { ElectronicsComponent } from './electronics/electronics.component';
 import { FashionComponent } from './fashion/fashion.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
 {path: 'home',component:HomeComponent,data:{header:false}},
 {path: 'login',component:LoginComponent},
 {path: 'signup',component:SignupComponent},
-{path:'cart',component:CartComponent},
+// {path:'cart',component:CartComponent},
 {path:'electronics',component:ElectronicsComponent},
 {path:'mobiles',component:MobilesComponent},
 {path:'computers-laptops',component:ComputersLaptopsComponent},
@@ -52,7 +52,7 @@ export const myRoutings=[
   HomeComponent,
   LoginComponent,
   SignupComponent,
-  CartComponent,
+  // CartComponent,
   ElectronicsComponent,
   MobilesComponent,
   ComputersLaptopsComponent,

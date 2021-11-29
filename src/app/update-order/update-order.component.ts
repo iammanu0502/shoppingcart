@@ -43,4 +43,10 @@ export class UpdateOrderComponent implements OnInit {
     , error => console.log(error));
   }
 
+
+  back(){
+    this.router.navigate(['/order-list']);
+  }
+
+
 }

@@ -20,7 +20,7 @@
     .reg1{
         position:absolute;
         right:200px;
-        
+
     }
     .reg3{
         position:absolute;
@@ -51,7 +51,7 @@
     }
     #one{
         margin-left:200px;
-    
+
     }
 }
 @media all and (max-width:1280px){
@@ -79,10 +79,10 @@
 
 /*------------------------------------------------------Card2---------------------------------------------------->*/
 .cd-h4{
-    font-weight:bold; 
-    margin:5px; 
+    font-weight:bold;
+    margin:5px;
     padding-top:5px;
-    padding-left:20px; 
+    padding-left:20px;
     padding-bottom:20px;
     background-color:#00DED1;
     max-width:330px;
@@ -138,7 +138,7 @@
     bottom:0;
     width:100%;
     height:350px;
-      
+
 }
 .footer-1{
     height:300px;
@@ -158,7 +158,7 @@
 }
 .foocol{
     min-height:300px;
-    background-color: #172337; 
+    background-color: #172337;
 }
 @media all and (min-width:576px){
     .foocol{
@@ -174,7 +174,7 @@
     }
 }
 .foocol-2{
-    background-color: #172337; 
+    background-color: #172337;
 }
 .foocol:last-child{
     border-right: none;
@@ -290,7 +290,7 @@ font-family: 'Ubuntu', sans-serif;
 
 .un:focus, .pass:focus {
     border: 2px solid rgba(0, 0, 0, 0.18) !important;
-    
+
 }
 
 .submit {
@@ -325,5 +325,17 @@ a {
     .main {
         border-radius: 0px;
     }
-   
+
+}
+.card {
+
+  align-items: center;
+  border: none;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+  margin-bottom: 30px;
+}
+h5{
+  display:inline;
+  text-align:center;
 }

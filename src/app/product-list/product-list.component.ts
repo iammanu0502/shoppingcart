@@ -30,6 +30,19 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['update-product', id]);
   }
 
+  back(){
+    this.router.navigate(['/products']);
+  }
+
+  orderlist(){
+    this.router.navigate(['/order-list']);
+  }
+
+  userlist(){
+    this.router.navigate(['/user-list']);
+  }
+
+
   private getproducts(){
     this.productlistservice.getProductList().subscribe(data => {
       this.productlist = data;

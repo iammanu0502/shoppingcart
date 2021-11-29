@@ -36,4 +36,8 @@ export class UpdateProductComponent implements OnInit {
   }
 
 
+  back(){
+    this.router.navigate(['/product-list']);
+  }
+
 }

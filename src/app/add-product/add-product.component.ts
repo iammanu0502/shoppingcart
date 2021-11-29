@@ -29,6 +29,16 @@ export class AddProductComponent implements OnInit {
     this.router.navigate(['/product-list']);
   }
 
+
+
+  back(){
+    this.router.navigate(['/products']);
+  }
+
+  home(){
+    this.router.navigate(['/home']);
+  }
+
   onSubmit(){
 
     if(this.product.p_name && this.product.p_description && this.product.p_category && this.product.p_seller && this.product.p_price && this.product.image)

@@ -5,6 +5,12 @@
 </head>
 
 <body>
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+
+    <button (click)="back()" type="button" class="btn btn-secondary">Back</button>
+
+  </div>
   <div class="center">
     <br>
     <h1 class="color"> Update Product</h1><br>
@@ -47,7 +53,14 @@
         </select>
       </div>
 
-      <button mat-button color="primary" type="submit">Update Product</button>
+
+      <div class="form-group">
+        <label> Img src:</label>
+        <input type="url" placeholder="add URL" class="form-control" id="text" name="text"
+          [(ngModel)]="product.image">
+      </div>
+
+      <button class="submit" mat-button color="primary" type="submit">Update Product</button>
 
     </form>&nbsp;
   </div>

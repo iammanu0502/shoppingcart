@@ -25,6 +25,20 @@ export class UserListComponent implements OnInit {
     });
   }
 
+
+  back(){
+    this.router.navigate(['/products']);
+  }
+
+  orderlist(){
+    this.router.navigate(['/order-list']);
+  }
+
+  productlist(){
+    this.router.navigate(['/product-list']);
+  }
+
+
   userDetails(id: number){
     this.router.navigate(['users', id]);
   }

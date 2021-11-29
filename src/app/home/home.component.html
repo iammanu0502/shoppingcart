@@ -31,9 +31,9 @@
           <button onclick="window.location.href='signup'" type="button" title="Click here to signup" class="btn btn-danger reg1">Sign Up</button>
 
 
-          <button onclick="window.location.href='cart',routerLink='cart'" type="button" title="Click here to open cart" class="btn btn-info reg2"><i class="fas fa-shopping-cart"> Cart</i>
-            &nbsp;<span class="badge badge-light">0</span>
-          </button>
+            <!-- <button onclick="window.location.href='cart',routerLink='cart'" type="button" title="Click here to open cart" class="btn btn-info reg2"><i class="fas fa-shopping-cart"> Cart</i>
+              &nbsp;<span class="badge badge-light">0</span>
+            </button> -->
 
 
 
@@ -87,34 +87,30 @@
 
 
 <!------------------------------------------------------Card2---------------------------------------------------->
-<div class="row">
+<div class="row" >
   <div *ngFor="let product of products" class="col-md-6 col-xl-3">
      <div class="card m-b-30">
         <div class="card-body row">
            <div class="card-img-top">
-              <a href=""><img src="{{product?.image}}" alt=""   class="img-fluid rounded-rectangle w-10"  style="margin:5px; max-height:200px; max-width:200px;"></a>
+              <a href=""><img src="{{product?.image}}" alt=""   class="img-fluid rounded-rectangle w-10"  style="margin:5px; max-height:150px; max-width:150px;"></a>
            </div>
-
-        </div>
-        <ul class="list-group list-group-flush">
+          </div>
+          <ul class="list-group list-group-flush">
           <h5>{{product?.p_name}}</h5>
-          <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{product?.p_description}}</li>
+          <li class="list-group-item"><i class="fa fa-envelope float-right"></i><small>{{product?.p_description}}</small></li>
            <li class="list-group-item"><i class="fa fa-envelope float-right"></i>Category: {{product?.p_category}}</li>
            <li class="list-group-item"><i class="fa fa-phone float-right"></i>Seller : {{product?.p_seller}}</li>
            <li class="list-group-item"><i class="fa fa-phone float-right"></i>Price : {{product?.p_price}}</li>
+          </ul>
+        </div><button (click)="register()" type="submit" title="Click here to order" class="btn btn-primary reg3">Order</button>
+      </div>
 
-        </ul>
-        <!-- <div class="card-body">
-           <div class="float-right btn-group btn-group-sm">
-              <a (click)="onOpenModal(employee, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-              <a (click)="onOpenModal(employee, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
-           </div> -->
-        </div>
-        <button onclick="window.location.href='order'" type="button" title="Click here to login" class="btn btn-primary reg3">Order</button>
-     </div>
   </div>
 
 <!------------------------------------------------------Card2---------------------------------------------------->
+<br/>
+<br/>
+<br/>
 <!------------------------------------------------------Banner---------------------------------------------------->
 <div>
   <a class="banner-link" href="#"><img src="../../assets/banner.JPG" alt="mens-wear-banner" class="image-fluid" style="width:100%; height:399px; border-bottom:1px solid darkgray;"></a>

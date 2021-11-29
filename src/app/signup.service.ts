@@ -12,7 +12,7 @@ const baseUrllogin = 'http://localhost:8080/api/login';
   providedIn: 'root'
 })
 export class SignupService {
-
+  signup: Signup = new Signup();
   //createSignup: any;
   //private baseURL = "http://localhost:8080/api";
   constructor(private http: HttpClient) { }
@@ -30,6 +30,11 @@ export class SignupService {
     return this.http.get<Signup[]>(`${baseUrl}`+'/users/email_id/{email_id}}');
   }
 
+  getUserdata(email_id:any,password:any): Observable<any>{
+
+    return this.http.get<Signup>(`${baseUrl}`+'/users'+`/${email_id}/${password}`);
+
+  }
 
   getUser(email_id: any): Observable<Signup> {
     return this.http.get<Signup>(`${baseUrl}/${email_id}`);         // calling all the users needs to be fixed

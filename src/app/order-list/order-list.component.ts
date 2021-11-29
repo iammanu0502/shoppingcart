@@ -27,6 +27,17 @@ export class OrderListComponent implements OnInit {
     });
   }
 
+  back(){
+    this.router.navigate(['/products']);
+  }
+
+  userlist(){
+    this.router.navigate(['/user-list']);
+  }
+
+  productlist(){
+    this.router.navigate(['/product-list']);
+  }
 
   orderDetails(id: number){
     this.router.navigate(['orders', id]);

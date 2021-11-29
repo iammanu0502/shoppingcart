@@ -1,7 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prod } from '../prod';
 import { ProductService } from '../product.service';
+import { Signup } from '../Signup';
+import { SignupService } from '../signup.service';
 
 @Component({
   selector: 'app-electronics',
@@ -11,7 +14,8 @@ import { ProductService } from '../product.service';
 export class ElectronicsComponent implements OnInit {
 
   public products: Prod[];
-  constructor(private prserv:ProductService){}
+  public signup: Signup[];
+  constructor(private prserv:ProductService, private signupservice:SignupService, private router:Router){}
 
 
 
@@ -50,4 +54,39 @@ export class ElectronicsComponent implements OnInit {
       }
     );
   }
+
+
+  onsubmit(p_name: String, username: String, email_id: String)
+
+   {
+
+
+      this.signupservice.getUserdata(this.signupservice.signup.email_id, this.signupservice.signup.username).subscribe( data =>{
+        const user=data;
+
+        if(user?.firstName && user?.lastName)
+    {
+      const userName=user.firstName+' '+user.lastName;
+      const emailId=user.emailId;
+
+
+
+      this.router.navigate(['order'],
+      {
+        queryParams: { p_name,username,email_id }
+       })
+
+      }
+        console.log(data);
+
+      },
+      error => {
+        return console.log(error);
+      });
+    }
+
+
 }
+
+
+
