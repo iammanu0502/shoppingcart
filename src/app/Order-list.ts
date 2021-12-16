@@ -9,5 +9,6 @@ export class Orderlist {
   state: string;
   city: string;
   zipCode:number;
+  paymentMode:string;
 
 }

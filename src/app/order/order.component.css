@@ -57,6 +57,10 @@ border-radius: 5px;
 }
 
 
+.center{
+  overflow: scroll;
+}
+
 
   .form-controladd{
     padding: 10px;

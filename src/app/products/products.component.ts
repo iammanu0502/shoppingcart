@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Prod } from '../prod';
 import { ProductService } from '../product.service';
 
@@ -11,10 +12,14 @@ import { ProductService } from '../product.service';
 })
 export class ProductsComponent implements OnInit {
   public products: Prod[];
-  constructor(private prserv:ProductService) { }
+  constructor(private prserv:ProductService, private router:Router) { }
 
   ngOnInit() {
     this.getProducts();
+  }
+
+  updateProduct(id: number){
+    this.router.navigate(['update-product', id]);
   }
 
   public getProducts(): void {

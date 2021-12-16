@@ -52,6 +52,7 @@ export class OrderComponent implements OnInit {
     if(this.order.productName && this.order.userName && this.order.emailId&& this.order.phoneNumber && this.order.address && this.order.state && this.order.city && this.order.zipCode )
     {
       console.log(this.order);
+      alert('your order is placed successfully')
       this.saveOrder();
     }
     else{

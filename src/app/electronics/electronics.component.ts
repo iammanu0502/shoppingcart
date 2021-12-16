@@ -61,13 +61,13 @@ export class ElectronicsComponent implements OnInit {
    {
 
 
-      this.signupservice.getUserdata(this.signupservice.signup.email_id, this.signupservice.signup.username).subscribe( data =>{
+      this.signupservice.getUser(this.signupservice.signup.email_id, this.signupservice.signup.username).subscribe( data =>{
         const user=data;
 
         if(user?.firstName && user?.lastName)
     {
-      const userName=user.firstName+' '+user.lastName;
-      const emailId=user.emailId;
+      // const userName=user.firstName+' '+user.lastName;
+      const emailId=user.email_id;
 
 
 

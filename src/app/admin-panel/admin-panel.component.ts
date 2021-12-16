@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router } from '@angular/router';
 import { AdminPanelService } from '../admin-panel.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../service/authentication.service';
 import { Adminpanel } from '../Admin-panel';
 
 @Component({
@@ -16,7 +15,7 @@ export class AdminPanelComponent implements OnInit {
   errors={email_id:false}
   admin: Adminpanel = {email_id:'',password:''};
 
-  constructor(private loginservice:AuthenticationService, private router: Router,private adminService: AdminPanelService,private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router,private adminService: AdminPanelService,private fb: FormBuilder,private activatedRoute: ActivatedRoute) { }
   reactiveForm!: FormGroup;
 
   ngOnInit(): void {

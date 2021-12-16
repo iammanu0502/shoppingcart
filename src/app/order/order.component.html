@@ -13,7 +13,6 @@
   </div>
 
   <div class="center">
-    <br>
     <h1 class="color"> Order Now</h1><br>
 
     <form (ngSubmit)="onSubmit()">
@@ -118,7 +117,15 @@
       </div>
 
 
-      <button class="submit" mat-button color="basic" type="submit">Place Order</button>
+      <div class="form-group">
+        <label>Payment mode:</label>
+      <select name="mode" id="mode" class="form-control" [(ngModel)]="order.paymentMode" placeholder="select payment mode">
+        <option value="" disabled selected >select Payment Mode</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+      </select>
+      </div>
+
+     <button class="submit" mat-button color="basic" type="submit">Place Order</button>
 
     </form>&nbsp;
   </div>

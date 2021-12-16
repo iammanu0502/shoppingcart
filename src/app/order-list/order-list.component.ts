@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class OrderListComponent implements OnInit {
   orderlist: Orderlist[];
-  displayedColumns: string[] = ['productName','userName','emailId','phoneNumber','address','orderDate','state','city','zipCode','actions','action1'];
+  displayedColumns: string[] = ['productName','userName','emailId','phoneNumber','address','orderDate','state','city','zipCode','paymentMode','actions','action1'];
   dataSource: MatTableDataSource<Orderlist>;
   constructor(private router: Router, private orderlistservice:OrderListService) { }
 

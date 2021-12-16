@@ -26,25 +26,25 @@ export class SignupService {
   // getUser(email_id: any): Observable<Signup>{
   //   return this.http.get<Signup>(`${baseUrl}`+'/email_id'+`/${email_id}`);
   // }
-  public findByEmail_id(email_id: any): Observable<Signup[]>{
-    return this.http.get<Signup[]>(`${baseUrl}`+'/users/email_id/{email_id}}');
-  }
+  // public findByEmail_id(email_id: any): Observable<Signup[]>{
+  //   return this.http.get<Signup[]>(`${baseUrl}`+'/users/email_id/{email_id}}');
+  // }
 
-  getUserdata(email_id:any,password:any): Observable<any>{
+  getUser(email_id:any,password:any): Observable<any>{
 
     return this.http.get<Signup>(`${baseUrl}`+'/users'+`/${email_id}/${password}`);
 
   }
 
-  getUser(email_id: any): Observable<Signup> {
-    return this.http.get<Signup>(`${baseUrl}/${email_id}`);         // calling all the users needs to be fixed
-   }
+  // getUser(email_id: any): Observable<Signup> {
+  //   return this.http.get<Signup>(`${baseUrl}/${email_id}`);
+  //  }
 
   // create(data: any): Observable<any> {
   //   return this.http.post(baseUrl, data);
   // }
 
-  create(signup: Signup): Observable<Object>{                                       ///////user.service.ts
+  create(signup: Signup): Observable<Object>{
   return this.http.post(`${baseUrl}`+'/save-user', signup);
   }
 

@@ -11,7 +11,6 @@
 
   </div>
   <div class="center">
-    <br>
     <h1 class="color">Update Order</h1><br>
 
     <form (ngSubmit)="onSubmit()">
@@ -116,6 +115,15 @@
         <input type="tel" placeholder="123456" class="form-control" id="zipCode" name="zipCode"
           [(ngModel)]="order.zipCode">
       </div>
+
+      <div class="form-group">
+        <label>Payment mode:</label>
+      <select name="mode" id="mode" class="form-control" [(ngModel)]="order.paymentMode" placeholder="select payment mode">
+        <option value="" disabled selected >select Payment Mode</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+      </select>
+      </div>
+
 
 
       <button class="submit" mat-button color="basic" type="submit">Update Order</button>
